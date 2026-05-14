@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* --- STICKY HEADER SCROLL LOGIC --- */
+    /**
+     * Toggles the sticky header class based on scroll direction.
+     * Shows sticky header on scroll down past hero fold, hides on scroll up.
+     */
     const header = document.querySelector(".header");
     const hero = document.querySelector(".hero");
     let lastScrollY = window.scrollY;
@@ -34,6 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* --- VANILLA JS CAROUSEL --- */
+    /**
+     * Controls the main hero image slider, including thumbnail navigation
+     * and auto-scrolling the thumbnail track on mobile devices.
+     */
     const slides = document.querySelectorAll(".carousel-img");
     const thumbs = document.querySelectorAll(".thumb");
     const nextBtn = document.querySelector(".next");
@@ -88,6 +96,10 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlide(current);
 
     /* --- ADVANCED IMAGE ZOOM --- */
+    /**
+     * Desktop-only magnification effect. Captures mouse coordinates to
+     * pan a 2.5x zoomed background image within the preview container.
+     */
     const imageZoomContainers = document.querySelectorAll(".image-zoom-container");
 
     imageZoomContainers.forEach(container => {
@@ -147,6 +159,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* --- FAQ ACCORDION --- */
+    /**
+     * Manages accordion state. Calculates content scrollHeight for smooth 
+     * expansion and closes previously opened panels automatically.
+     */
     const faqToggles = document.querySelectorAll('.faq-toggle');
 
     faqToggles.forEach(toggle => {
@@ -196,6 +212,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* --- MANUFACTURING TABS --- */
+    /**
+     * Handles switching between manufacturing stages. Links desktop tab buttons
+     * to content panels and synchronizes with the mobile step indicator.
+     */
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
 
@@ -345,6 +365,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* --- DATASHEET MODAL VALIDATION --- */
+    /**
+     * Manages modal visibility and strictly validates input fields 
+     * (Email and Indian Phone format) before unlocking the download button.
+     */
     const datasheetModal = document.getElementById('datasheetModal');
     const openDatasheetBtn = document.getElementById('openDatasheetModal');
     const closeDatasheetBtn = document.getElementById('closeDatasheetModal');
@@ -381,14 +405,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const phoneRegex = /^(?:\+91[-\s]?|0)?[6789]\d{9}$/;
 
             const isEmailValid = emailRegex.test(emailValue);
-            // We require valid Indian number if they type ANYTHING or we require it always to un-mute
-            const isContactValid = contactValue === '' || phoneRegex.test(contactValue);
-
-            // Per user request, mute unless the data satisfies regex. 
-            // Email is required. Contact we make valid if empty, BUT wait, user said 
-            // "where the email is required and contact nuumber so follow indian number format... mute unless data is completely satisifed".
-            // Let's enforce both (or email is valid + phone is empty OR phone is valid).
-            // Actually, I'll enforce email strictly, and contact strictly if typed. I'll require them BOTH to be fully valid to be safe.
+            
+            // Require both email and a valid Indian phone number before enabling submit
             const isContactFullyValid = phoneRegex.test(contactValue);
 
             if (isEmailValid && isContactFullyValid) {
@@ -490,6 +508,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     /* --- TESTIMONIALS DRAG-TO-SCROLL --- */
+    /**
+     * Implements mouse drag-to-scroll for the testimonial track
+     * and dynamically centers the cards based on current viewport width.
+     */
     const testimonialsTrack = document.getElementById('testimonialsTrack');
     const testimonialsWrapper = testimonialsTrack ? testimonialsTrack.closest('.testimonials-carousel-wrapper') : null;
 
