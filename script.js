@@ -13,13 +13,24 @@ document.addEventListener('DOMContentLoaded', () => {
     /* --- STICKY HEADER SCROLL LOGIC --- */
     const header = document.querySelector(".header");
     const hero = document.querySelector(".hero");
+    let lastScrollY = window.scrollY;
 
     window.addEventListener("scroll", () => {
-        if (hero && window.scrollY > hero.offsetHeight - 100) {
-            header.classList.add("sticky");
+        const currentScrollY = window.scrollY;
+        
+        if (hero && currentScrollY > hero.offsetHeight - 100) {
+            if (currentScrollY < lastScrollY) {
+                // Disappear when scrolling back up
+                header.classList.remove("sticky");
+            } else {
+                // Appear when scrolling down
+                header.classList.add("sticky");
+            }
         } else if (header) {
             header.classList.remove("sticky");
         }
+        
+        lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY; // For Mobile or negative scrolling
     });
 
     /* --- VANILLA JS CAROUSEL --- */
