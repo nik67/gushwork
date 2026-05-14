@@ -3586,10 +3586,6 @@ p.cta-contact-info {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .cta-banner {
-        grid-template-columns: 1fr;
-    }
-
     .cta-text {
         text-align: center;
     }
@@ -3689,12 +3685,6 @@ p.cta-contact-info {
         order: 4;
     }
 
-    .hero-content .price-box {
-        order: 5;
-        width: 100%;
-        max-width: 100%;
-    }
-
     .certifications {
         margin-bottom: 0;
     }
@@ -3721,48 +3711,6 @@ p.cta-contact-info {
     }
 
     .header .container {
-        padding-left: 16px;
-        padding-right: 0;
-    }
-
-    .nav-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--white);
-        flex-direction: column;
-        padding: 2rem;
-        box-shadow: var(--shadow-md);
-        gap: 1.5rem;
-        align-items: center;
-        text-align: center;
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    .dropdown-menu {
-        position: relative;
-        box-shadow: none;
-        padding-left: 0;
-        text-align: center;
-        margin-top: 1rem;
-    }
-
-    .dropdown-menu a {
-        padding: 0.5rem;
-    }
-
-    .mobile-menu-btn {
-        display: flex;
-        padding: 1rem;
-    }
-
-    .contact-btn {
-        margin: 1rem 0 0 0;
     }
 
     .hero-content h1 {
@@ -3785,26 +3733,17 @@ p.cta-contact-info {
     }
 
     .carousel-main {
-        order: 7;
         width: 704px;
         height: 704px;
         margin: 1rem auto 0;
     }
 
     .carousel-thumbnails {
-        order: 8;
         width: 704px;
         margin: 1.5rem auto 1.5rem;
         gap: 44.8px;
     }
 
-    .hero-content .price-box {
-        order: 5;
-    }
-
-    .hero-content .hero-buttons {
-        order: 6;
-    }
 
     .logo-strip-section {
         padding: 48px 0px 0;
@@ -4007,6 +3946,9 @@ p.cta-contact-info {
         padding-top: 80px;
         padding-bottom: 80px;
     }
+    .cta-banner {
+            grid-template-columns: 1fr;
+        }
 }
 
 /* Mobile: 600px and below */
@@ -4124,6 +4066,48 @@ p.cta-contact-info {
 
 /* Mobile: 480px and below */
 @media (max-width: 480px) {
+    /* Show hamburger icon and collapse nav into dropdown on mobile only */
+    .mobile-menu-btn {
+        display: flex;
+        padding: 1rem;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        padding: 2rem;
+        box-shadow: var(--shadow-md);
+        gap: 1.5rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .dropdown-menu {
+        position: relative;
+        box-shadow: none;
+        padding-left: 0;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .dropdown-menu a {
+        padding: 0.5rem;
+    }
+
+    .contact-btn {
+        margin: 1rem 0 0 0;
+    }
+
+
     .hero-container {
         flex-direction: column;
         gap: 1rem;
@@ -4392,7 +4376,7 @@ p.cta-contact-info {
     }
 
     .section-header h2 {
-        font-size: 2.25rem;
+        font-size: 2.75rem;
     }
 
     .section-header p {
@@ -4553,8 +4537,11 @@ p.cta-contact-info {
     }
 
     .products-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
+        .product-card>.card-img-wrapper {
+            margin-top: 20px;
+        }
 }
 
 /* Manufacturing tabs for 600px-800px */
@@ -4603,6 +4590,7 @@ p.cta-contact-info {
     .products-cta-banner {
         flex-direction: row;
         align-items: center;
+        padding: 20px;
     }
 
     .products-cta-banner .btn-expert {
@@ -5141,9 +5129,6 @@ p.cta-contact-info {
 }
 
 @media (max-width: 1080px) {
-    .carousel-main {
-        max-width: 452px;
-    }
 
     .carousel-thumbnails {
         max-width: 452px;
@@ -5159,7 +5144,6 @@ p.cta-contact-info {
 
 @media (max-width: 800px) {
     .carousel-main {
-        max-width: 704px;
         width: calc(100vw - 96px);
     }
 
@@ -5618,22 +5602,18 @@ p.cta-contact-info {
     }
 
     .hero-carousel .breadcrumb {
-        order: 1;
         margin-bottom: 0.5rem;
     }
 
     .hero-content .certifications {
-        order: 2;
     }
 
     .hero-content h1 {
-        order: 3;
-        font-size: 36px;
+        font-size: 56px;
         margin-bottom: 0.5rem;
     }
 
     .hero-content .feature-bullets {
-        order: 4;
     }
 
     .hero-carousel .carousel-main {
@@ -5644,7 +5624,6 @@ p.cta-contact-info {
     }
 
     .hero-carousel .carousel-thumbnails {
-        order: 5;
         width: min(704px, calc(100vw - 96px));
         margin: 1.5rem auto;
         gap: clamp(16px, 4vw, 44.8px);
@@ -5655,17 +5634,20 @@ p.cta-contact-info {
     .hero-carousel .thumb {
         width: 80px;
         height: 80px;
-        flex: 0 0 80px;
+        flex: 0 0 90px;
     }
 
     .hero-content .price-box {
-        order: 5;
         width: 100%;
+        max-width: 100%;
+        margin-bottom: 0;
+        order: 4;
     }
 
     .hero-content .hero-buttons {
-        order: 6;
         width: 100%;
+        margin-bottom: 0;
+        order:5;
     }
 
     .certifications {
@@ -5679,19 +5661,53 @@ p.cta-contact-info {
     .price-tags {
         gap: 10px;
     }
-
+    .hero-carousel .carousel-main {
+         width: min(704px, calc(100vw - 96px));
+         margin: 0;
+         max-width: 704px;
+         order:6
+    }
+    .hero-carousel .carousel-thumbnails {
+         width: min(704px, calc(100vw - 96px));
+         margin: 0;
+    }
+}
+@media (max-width: 799px) and (min-width:600px){
+    .hero-carousel .carousel-main {
+            width: min(704px, calc(100vw - 70px));
+            margin: 0;
+            max-width: 704px;
+        }
+}
+@media (max-width: 599px) and (min-width:400px) {
+    .hero-carousel .carousel-main {
+        width: min(400px, calc(100vw - 96px));
+        margin: 0;
+        max-width: 400px;
+    }
+}
+@media (max-width: 480px){
+    .hero-carousel .carousel-main {
+        width: min(448px, calc(100vw - 96px));
+        margin: 0;
+        max-width: 448px;
+    }
+}
+@media (max-width: 360px) {
+    .hero-carousel .carousel-main {
+        width: min(328px, calc(100vw - 96px));
+        margin: 0;
+        max-width: 328px;
+    }
 }
 
+/* 
 /* 600px - 800px */
-@media (max-width: 800px) and (min-width: 601px) {
-    .hero-carousel .carousel-main {
-        order:5;
-        width: min(600px, calc(100vw - 96px));
-    }
+@media (max-width: 799px) and (min-width: 601px) {
+    
 
     .hero-carousel .carousel-thumbnails {
-        order: 5;
-        width: min(600px, calc(100vw - 96px));
+        width: min(704px, calc(100vw - 70px));
     }
 
     .hero-content h1 {
@@ -5708,7 +5724,6 @@ p.cta-contact-info {
     .hero-carousel .carousel-main {
         width: calc(100vw - 32px);
         max-width: 500px;
-        order:5;
     }
 
     .hero-carousel .carousel-thumbnails {
@@ -5753,7 +5768,6 @@ p.cta-contact-info {
     }
 
     .hero-carousel .carousel-main {
-        order: 5;
         margin: 0 auto 0;
         width: calc(100vw - 32px);
         max-width: 420px;
@@ -5774,7 +5788,7 @@ p.cta-contact-info {
     }
 
     .hero-content h1 {
-        font-size: 26px;
+        font-size: 36px;
     }
 
     .certifications {
@@ -5788,7 +5802,7 @@ p.cta-contact-info {
     }
 
     .feature-bullets li {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .price-box {
@@ -5797,11 +5811,11 @@ p.cta-contact-info {
     }
 
     .price-label {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .price-value {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .price-tags {
@@ -5829,9 +5843,21 @@ p.cta-contact-info {
     .hero-buttons .btn {
         width: 100%;
         padding: 10px 16px;
-        font-size: 14px;
+        font-size: 16px;
     }
-
+     .hero-carousel .carousel-main {
+        order: 5;
+     }
+    .hero-carousel .carousel-thumbnails{
+         order: 6;
+    }
+    .hero-content .price-box {
+        order: 7;
+    }
+        
+    .hero-content .hero-buttons {
+        order: 8;
+    }
 }
 
 /* 400px and below */
